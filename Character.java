@@ -12,7 +12,13 @@ public class Character {
         this.health=health;
         this.damage=damage;
         this.isAlive=isAlive;
-
+        }
+    
+    public static void displayInfo(){
+        System.out.println("Name: " + name);
+        System.out.println("Health: " + health);
+        System.out.println("Damage: " + damage);
+        System.out.println("Is Alive: " + isAlive);
 
     }
 }
