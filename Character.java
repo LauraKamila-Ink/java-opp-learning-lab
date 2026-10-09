@@ -14,7 +14,7 @@ public class Character {
         this.isAlive=isAlive;
         }
     
-    public static void displayInfo(){
+    public void displayInfo(){
         System.out.println("Name: " + name);
         System.out.println("Health: " + health);
         System.out.println("Damage: " + damage);
@@ -27,5 +27,20 @@ public class Character {
 
         character1.displayInfo();
         character2.displayInfo();
+    }
+
+    // Method to attack another character
+    public static void attack(Character target, Character attacker) {
+        if(attacker.isAlive && target.isAlive) {
+            target.health -= attacker.damage;
+            System.out.println(attacker.name + "attacks" + target.name + "for" + attacker.damage + "damage");
+            if (target.health <=0) {
+                target.isAlive = false;
+                System.out.println(target.name + "has been defeated");
+
+            }
+
+        }
+
     }
 }
