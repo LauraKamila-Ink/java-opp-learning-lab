@@ -43,4 +43,16 @@ public class Character {
         }
 
     }
+
+    // Method to take damage
+    public static void takeDamage(Character character, int damage) {
+        if (character.isAlive) {
+            character.health -= damage;
+            System.out.println(character.name + "takes" + damage + "damage");
+            if (character.health <= 0) {
+                character.isAlive = false;
+                System.out.println(character.name + "has been defeated");
+            }
+        }
+    }
 }
