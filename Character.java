@@ -5,13 +5,15 @@ public class Character {
     int health;
     int damage;
     boolean isAlive;
+    int maxHealth;
 
     //Constructor
-    public Character(String name, int health, int damage, boolean isAlive){
+    public Character(String name, int health, int damage, boolean isAlive, int maxHealth){
         this.name=name;
         this.health=health;
         this.damage=damage;
         this.isAlive=isAlive;
+        this.maxHealth=maxHealth;
         }
     
     public void displayInfo(){
@@ -19,10 +21,11 @@ public class Character {
         System.out.println("Health: " + health);
         System.out.println("Damage: " + damage);
         System.out.println("Is Alive: " + isAlive);
+        System.out.println("Max Health: " + maxHealth);
     }
     public static void main(String[] args){
-        Character character1 = new Character("Leira", 100, 40, true);
-        Character character2 = new Character("Shareny", 150, 70, true);
+        Character character1 = new Character("Leira", 100, 40, true, 100);
+        Character character2 = new Character("Shareny", 150, 70, true, 150);
 
         character1.displayInfo();
         character2.displayInfo();
@@ -68,10 +71,9 @@ public class Character {
         }
         if (health < 0){
             System.out.println("Health cannot be negative");
+            return;
         }
-        if (this.isAlive == true) {
-            this.health += health;
-            System.out.println(this.name + "take health for" + health + "points and have" + this.health + "health points");
+        this.health += health;
+            System.out.println(this.name + " healed for " + health + " health points and now has " + this.health + " health points.");
         }
-    }
 }
