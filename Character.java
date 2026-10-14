@@ -20,7 +20,6 @@ public class Character {
         System.out.println("Damage: " + damage);
         System.out.println("Is Alive: " + isAlive);
     }
-
     public static void main(String[] args){
         Character character1 = new Character("Leira", 100, 40, true);
         Character character2 = new Character("Shareny", 150, 70, true);
@@ -37,22 +36,42 @@ public class Character {
             if (target.health <=0) {
                 target.isAlive = false;
                 System.out.println(target.name + "has been defeated");
-
             }
-
         }
-
     }
 
     // Method to take damage
-    public static void takeDamage(Character character, int damage) {
-        if (character.isAlive) {
-            character.health -= damage;
-            System.out.println(character.name + "takes" + damage + "damage");
-            if (character.health <= 0) {
-                character.isAlive = false;
-                System.out.println(character.name + "has been defeated");
+    public void takeDamage(int damage) {
+        if (this.isAlive) {
+            if (damage <0){
+                System.out.println("Damage cannot be negative");
+                return;
             }
+            this.health -= damage;
+            System.out.println(this.name + "takes" + damage + "damage");
+            if (this.health <= 0) {
+                this.health = 0;
+            }
+            if (this.health <= 0) {
+                this.isAlive = false;
+                System.out.println(this.name + "has been defeated");
+            }
+        }
+    }
+
+    // Method to health character
+
+    public void takeHealth (int health) {
+        if (this.isAlive == false) {
+            System.out.println("Cannot heal a dead character");
+            return;
+        }
+        if (health < 0){
+            System.out.println("Health cannot be negative");
+        }
+        if (this.isAlive == true) {
+            this.health += health;
+            System.out.println(this.name + "take health for" + health + "points and have" + this.health + "health points");
         }
     }
 }
