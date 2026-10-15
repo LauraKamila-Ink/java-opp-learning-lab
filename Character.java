@@ -1,10 +1,10 @@
 //Attributes
 public class Character {
-    String name;
-    int health;
-    int damage;
-    boolean isAlive;
-    int maxHealth;
+    private String name;
+    private int health;
+    private int damage;
+    private boolean isAlive;
+    private int maxHealth;
 
     //Constructor
     public Character(String name, int health, int damage, boolean isAlive, int maxHealth){
