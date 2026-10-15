@@ -75,5 +75,12 @@ public class Character {
         }
         this.health += health;
             System.out.println(this.name + " healed for " + health + " health points and now has " + this.health + " health points.");
+<<<<<<< HEAD
+=======
+        
+        if (this.health > this.maxHealth) {
+            this.health = this.maxHealth;
+            System.out.println(this.name + " is now at max health: " + this.maxHealth);
+>>>>>>> 0a670a7 (feat: Implement healing rules with maxHealth)
         }
 }
