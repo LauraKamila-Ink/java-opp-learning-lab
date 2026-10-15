@@ -65,13 +65,13 @@ public class Character {
     public int getMaxHealth(){
         return maxHealth;
     }
-    public String setName(String name){
+    public void setName(String name){
         if (name == null || name.isEmpty()) {
             System.out.println("Name cannot be null or empty. Name not changed.");
-            return this.name;
+            return;
         } else {
             this.name = name;
-            return this.name;
+            return;
         }
     }
     
