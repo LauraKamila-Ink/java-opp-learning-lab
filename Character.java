@@ -14,7 +14,33 @@ public class Character {
         this.damage=damage;
         this.isAlive=isAlive;
         this.maxHealth=maxHealth;
+        
+        if (name == null || name.isEmpty()) {
+            this.name = "Unknown";
+            System.out.println("Name cannot be null or empty. Setting name to 'Unknown'.");
         }
+        if (isAlive == false && health >0){
+            this.isAlive = true;
+            System.out.println(this.name + " cannot be dead with positive health. Setting isAlive to true.");
+        }
+        if (health < 0) {
+            this.health = 0;
+            System.out.println(this.name + " health cannot be negative. Setting health to 0.");
+        }
+        if (health > maxHealth) {
+            this.health = maxHealth;
+            System.out.println(this.name + " health cannot exceed max health. Setting health to max health: " + maxHealth);
+        }
+        if (maxHealth < 0) {
+            this.maxHealth = 0;
+            System.out.println(this.name + " max health cannot be negative. Setting max health to 0.");
+        }
+        if (damage < 0) {
+            this.damage = 0;
+            System.out.println(this.name + " damage cannot be negative. Setting damage to 0.");
+        }
+
+    }
     
     public void displayInfo(){
         System.out.println("Name: " + name);
@@ -23,12 +49,14 @@ public class Character {
         System.out.println("Is Alive: " + isAlive);
         System.out.println("Max Health: " + maxHealth);
     }
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Character character1 = new Character("Leira", 100, 40, true, 100);
         Character character2 = new Character("Shareny", 150, 70, true, 150);
+        Character character3 = new Character("Wendy", 200, 100, true, 200);
 
         character1.displayInfo();
         character2.displayInfo();
+        character3.displayInfo();
     }
 
     // Method to attack another character
