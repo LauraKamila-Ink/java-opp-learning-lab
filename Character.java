@@ -49,6 +49,32 @@ public class Character {
         }
     }
     
+    // Getters and Setters
+    public String getName(){
+        return name;
+    }
+    public int getHealth(){
+        return health;
+    }
+    public int getDamage(){
+        return damage;
+    }
+    public boolean getIsAlive(){
+        return isAlive;
+    }
+    public int getMaxHealth(){
+        return maxHealth;
+    }
+    public String setName(String name){
+        if (name == null || name.isEmpty()) {
+            System.out.println("Name cannot be null or empty. Name not changed.");
+            return this.name;
+        } else {
+            this.name = name;
+            return this.name;
+        }
+    }
+    
     public void displayInfo(){
         System.out.println("Name: " + name);
         System.out.println("Health: " + health);
