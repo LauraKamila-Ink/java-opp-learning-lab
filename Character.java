@@ -1,3 +1,6 @@
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 //Attributes
 public class Character {
     private String name;
@@ -5,6 +8,7 @@ public class Character {
     private int damage;
     private boolean isAlive;
     private int maxHealth;
+    private static final Logger logger = Logger.getLogger(Character.class.getName());
 
     //Constructor
     public Character(String name, int health, int damage, boolean isAlive, int maxHealth){
@@ -67,12 +71,10 @@ public class Character {
     }
     public void setName(String name){
         if (name == null || name.isEmpty()) {
-            System.out.println("Name cannot be null or empty. Name not changed.");
-            return;
-        } else {
-            this.name = name;
+            logger.warning("Name cannot be null or empty. Name not changed.");
             return;
         }
+        this.name = name;
     }
     
     public void displayInfo(){
