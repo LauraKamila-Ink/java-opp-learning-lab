@@ -1,5 +1,4 @@
 //Attributes
-
 public class Character {
     String name;
     int health;
@@ -15,6 +14,7 @@ public class Character {
         this.isAlive=isAlive;
         this.maxHealth=maxHealth;
         
+        //Rules for character attributes
         if (name == null || name.isEmpty()) {
             this.name = "Unknown";
             System.out.println("Name cannot be null or empty. Setting name to 'Unknown'.");
@@ -39,7 +39,14 @@ public class Character {
             this.damage = 0;
             System.out.println(this.name + " damage cannot be negative. Setting damage to 0.");
         }
-
+        if (damage > health) {
+            this.damage = health;
+            System.out.println(this.name + " damage cannot exceed health. Setting damage to health: " + health);
+        }
+        if (maxHealth < health) {
+            this.maxHealth = health;
+            System.out.println(this.name + " max health cannot be less than current health. Setting max health to current health: " + health);
+        }
     }
     
     public void displayInfo(){
@@ -91,7 +98,6 @@ public class Character {
     }
 
     // Method to health character
-
     public void takeHealth (int health) {
         if (this.isAlive == false) {
             System.out.println("Cannot heal a dead character");
@@ -100,7 +106,7 @@ public class Character {
         if (health < 0){
             System.out.println("Health cannot be negative");
             return;
-        }
+            }
         this.health += health;
             System.out.println(this.name + " healed for " + health + " health points and now has " + this.health + " health points.");
         
